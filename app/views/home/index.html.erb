@@ -1,7 +1,15 @@
 <% if user_signed_in? %>
-  <h2>Welcome, <%= current_user.username %>!</h2>
+  <h2 class="text-xl font-bold">Welcome back, <%= current_user.username %>!</h2>
 <% else %>
-  <h2>Welcome to the site!</h2>
-  <%= link_to 'Sign up', new_user_registration_path %> or
-  <%= link_to 'Log in', new_user_session_path %>
+  <div class="flex justify-between">
+    <h2 class="text-xl font-bold">Welcome to the site!</h2>
+    <div class="flex rounded-lg">
+      <div class="p-2 rounded-l-lg transition-all hover:bg-red-400 shadow-xl hover:shadow-none">
+        <%= link_to 'Sign up', new_user_registration_path %>
+      </div>
+      <div class="p-2 rounded-r-lg hover:bg-white bg-red-400 transition-all shadow-xl hover:shadow-none">
+        <%= link_to 'Login', new_user_session_path %>
+      </div>
+    </div>
+  </div>
 <% end %>
