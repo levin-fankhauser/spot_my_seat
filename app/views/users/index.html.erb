@@ -1,0 +1,30 @@
+<div class="flex flex-col pt-56 items-center">
+  <div class="p-14 shadow-2xl rounded-3xl w-full max-w-4xl">
+    <h1 class="text-xl font-bold mb-4 text-center">Users</h1>
+    <table class="min-w-full rounded-lg">
+      <thead>
+        <tr>
+          <th class="py-3 px-2 text-left">Username</th>
+          <th class="py-3 px-2 text-left">Email</th>
+          <th class="py-3 px-2 text-left">Aktionen</th>
+        </tr>
+      </thead>
+      <tbody class="">
+        <% @users.each do |user| %>
+          <tr class="border-b border-gray-200 hover:bg-gray-100">
+            <td class="py-3 px-2"><%= user.username %></td>
+            <td class="py-3 px-2"><%= user.email %></td>
+            <td class="py-3 px-2">
+              <%= link_to 'Show', user, class: "bg-blue-400 rounded-lg p-2 transition-all shadow-lg hover:shadow-none" %>
+              <%= link_to 'Edit', edit_user_path(user), class: "bg-green-400 rounded-lg p-2 mx-2 transition-all shadow-lg hover:shadow-none" %>
+              <%= link_to 'Delete', user, data: {"turbo-method": :delete}, class: "bg-red-400 rounded-lg p-2 transition-all shadow-lg hover:shadow-none" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="underline hover:no-underline transition-all mt-4 pl-2">
+      <%= link_to "Back", root_path%>
+    </div>
+  </div>
+</div>

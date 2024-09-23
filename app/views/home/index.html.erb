@@ -1,5 +1,14 @@
 <% if user_signed_in? %>
-  <h2 class="text-xl font-bold">Welcome back, <%= current_user.username %>!</h2>
+  <div class="flex justify-between">
+    <h2 class="text-xl font-bold">Welcome back, <%= current_user.username %>!</h2>
+    <div class="flex rounded-lg border">
+      <%= link_to 'My Profile', user_path(current_user), class: "p-2 rounded-l-lg transition-all hover:bg-red-200 shadow-xl hover:shadow-none" %>
+      <% if current_user.admin? %>
+        <%= link_to 'Manage Users', users_path, class: "p-2 hover:bg-white bg-blue-400 transition-all shadow-xl hover:shadow-none" %>
+      <% end %>
+      <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "p-2 rounded-r-lg hover:bg-white bg-red-400 transition-all shadow-xl hover:shadow-none" %>
+    </div>
+  </div>
 <% else %>
   <div class="flex justify-between">
     <h2 class="text-xl font-bold">Welcome to the site!</h2>

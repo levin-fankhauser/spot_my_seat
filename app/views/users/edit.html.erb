@@ -1,0 +1,39 @@
+<div class="flex flex-col pt-56 items-center">
+  <div class="p-14 shadow-2xl rounded-3xl">
+    <h1 class="text-xl font-bold mb-4">Edit User</h1>
+    <%= form_with(model: @user, local: true) do |form| %>
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="field mb-4">
+        <%= form.label :username %><br />
+        <%= form.text_field :username, required: true %>
+      </div>
+      <div class="field mb-4">
+        <%= form.label :email %><br />
+        <%= form.email_field :email, required: true %>
+      </div>
+      <div class="field mb-4">
+        <%= form.label :password %>  (6 characters min)<br />
+        <%= form.password_field :password, autocomplete: "off", required: true %>
+      </div>
+      <div class="field mb-4">
+        <%= form.label :password_confirmation %><br />
+        <%= form.password_field :password_confirmation, autocomplete: "off", required: true %>
+      </div>
+      <div class="actions">
+        <%= form.submit "Update User", class: "bg-red-400 py-2 px-4 rounded-lg transition-all shadow-md hover:shadow-none flex justify-center mb-4 w-full" %>
+      </div>
+    <% end %>
+    <div class="underline hover:no-underline transition-all mb-4">
+      <%= link_to 'Back', root_path %>
+    </div>
+    <p class="w-60">You will be redirected if the changes are successful!!!</p>
+  </div>
