@@ -1,0 +1,28 @@
+<h1>Sitzplatz Details</h1>
+<p>
+  <strong>Benutzer:</strong>
+  <%= @seat.user.username %>
+</p>
+<p>
+  <strong>Zug:</strong>
+  <%= @seat.train %>
+</p>
+<p>
+  <strong>Anzahl der Wagen:</strong>
+  <%= @seat.wagons %>
+</p>
+<p>
+  <strong>Aktueller Wagen:</strong>
+  <%= @seat.current_wagon %>
+</p>
+<p>
+  <strong>Sitzplatznummer:</strong>
+  <%= @seat.seat_number %>
+</p>
+<p>
+  <strong>Stockwerk:</strong>
+  <%= @seat.floor == 0 ? 'Untergeschoss' : 'Obergeschoss' %>
+</p>
+<%= link_to 'Bearbeiten', edit_seat_path(@seat), class: "bg-yellow-500 text-white p-2 rounded" %>
+<%= link_to 'Zurück', seats_path, class: "bg-gray-500 text-white p-2 rounded" %>
+<%= link_to 'Löschen', @seat, method: :delete, data: { confirm: 'Bist du sicher?' }, class: "bg-red-500 text-white p-2 rounded" %>

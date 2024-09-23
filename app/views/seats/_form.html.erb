@@ -1,0 +1,36 @@
+<%= form_with(model: @seat, local: true) do |form| %>
+  <% if @seat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@seat.errors.count, "error") %> prohibited this seat from being saved:</h2>
+      <ul>
+        <% @seat.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :train %>
+    <%= form.select :train, ['IR27', 'S3'], class: "p-2 border rounded" %>
+  </div>
+  <div class="field">
+    <%= form.label :wagons %>
+    <%= form.number_field :wagons, class: "p-2 border rounded" %>
+  </div>
+  <div class="field">
+    <%= form.label :current_wagon %>
+    <%= form.number_field :current_wagon, class: "p-2 border rounded" %>
+  </div>
+  <div class="field">
+    <%= form.label :seat_number %>
+    <%= form.number_field :seat_number, class: "p-2 border rounded" %>
+  </div>
+  <div class="field">
+    <%= form.label :floor %>
+    <%= form.select :floor, [[0, 'Untergeschoss'], [1, 'Obergeschoss']], class: "p-2 border rounded" %>
+  </div>
+  <div class="actions">
+    <%= form.submit class: "bg-green-500 text-white p-2 rounded" %>
+  </div>
+<% end %>
+<%= link_to 'Zurück', seats_path, class: "bg-gray-500 text-white p-2 rounded mt-4 inline-block" %>
