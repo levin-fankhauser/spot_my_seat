@@ -16,10 +16,13 @@
           <%= f.label :remember_me %>
         </div>
       <% end %>
-      <div class="actions bg-red-400 py-2 px-4 rounded-lg transition-all shadow-md hover:shadow-none flex justify-center">
+      <div class="actions bg-red-400 py-2 px-4 rounded-lg transition-all shadow-md hover:shadow-none flex justify-center mb-4">
         <%= f.submit "Log in" %>
       </div>
     <% end %>
     <%= render "devise/shared/links" %>
+    <div class="underline hover:no-underline transition-all">
+      <%= link_to "Home", root_path%>
+    </div>
   </div>
 </div>
