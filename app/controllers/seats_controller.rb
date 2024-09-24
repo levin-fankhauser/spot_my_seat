@@ -79,6 +79,6 @@ class SeatsController < ApplicationController
   end
 
   def admin_only
-    redirect_to(root_path, alert: "Access denied!") unless current_user.admin?
+    redirect_to root_path, alert: "Access denied!" unless current_user.admin?
   end
 end

@@ -51,7 +51,7 @@ class PostsController < ApplicationController
 
   def correct_user_or_admin
     unless current_user.admin? || @post.user == current_user
-      redirect_to posts_path, alert: "You are not authorized to perform this action."
+      redirect_to root_path, alert: "You are not authorized to perform this action."
     end
   end
 end
