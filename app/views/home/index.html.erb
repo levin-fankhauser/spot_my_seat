@@ -3,19 +3,19 @@
     <div class="flex justify-between">
       <h2 class="text-4xl font-bold">Welcome back, <%= current_user.username %>!</h2>
       <div class="flex rounded-lg gap-1">
-        <%= link_to 'My Profile', user_path(current_user), class: "p-2 bg-white rounded-l-lg rounded-r-sm transition-all shadow-xl hover:shadow-none border-2 border-red-400 hover:border-red-200" %>
+        <%= link_to 'My Profile', user_path(current_user), class: "p-2 bg-white rounded-l-lg rounded-r-sm transition-all shadow-xl hover:shadow-none border-2 border-red-400 hover:border-red-200 hover:scale-95" %>
         <% if current_user.admin? %>
-          <%= link_to 'Manage Users', users_path, class: "p-2 rounded-sm transition-all shadow-xl bg-white hover:shadow-none border-2 border-red-400 hover:border-red-200" %>
+          <%= link_to 'Manage Users', users_path, class: "p-2 rounded-sm transition-all shadow-xl bg-white hover:shadow-none border-2 border-red-400 hover:border-red-200 hover:scale-95" %>
         <% end %>
-        <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "p-2 bg-white rounded-l-sm rounded-r-lg transition-all shadow-xl hover:shadow-none border-2 border-red-400 hover:border-red-200" %>
+        <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "p-2 bg-white rounded-l-sm rounded-r-lg transition-all shadow-xl hover:shadow-none border-2 border-red-400 hover:border-red-200 hover:scale-95" %>
       </div>
     </div>
   <% else %>
     <div class="flex justify-between">
       <h2 class="text-4xl font-bold">Welcome to the site!</h2>
       <div class="flex rounded-lg gap-1">
-        <%= link_to 'Sign up', new_user_registration_path, class: "p-2 rounded-l-lg rounded-r-sm transition-all bg-white shadow-xl hover:shadow-none border-2 border-red-400 hover:border-red-200" %>
-        <%= link_to 'Login', new_user_session_path, class: "p-2 rounded-l-sm rounded-r-lg transition-all bg-white shadow-xl hover:shadow-none border-2 border-red-400 hover:border-red-200" %>
+        <%= link_to 'Sign up', new_user_registration_path, class: "p-2 rounded-l-lg rounded-r-sm transition-all bg-white shadow-xl hover:shadow-none border-2 border-red-400 hover:border-red-200 hover:scale-95" %>
+        <%= link_to 'Login', new_user_session_path, class: "p-2 rounded-l-sm rounded-r-lg transition-all bg-white shadow-xl hover:shadow-none border-2 border-red-400 hover:border-red-200 hover:scale-95" %>
       </div>
     </div>
   <% end %>
@@ -45,8 +45,8 @@
     <div class="flex mb-4 justify-between pr-5">
       <h2 class="text-3xl font-bold">Blog</h2>
       <div class="flex gap-2">
-        <%= link_to 'New Post', new_post_path, class: "p-2 bg-red-400 rounded-lg shadow-xl hover:shadow-none hover:bg-red-200 transition-all text-white" %>
-        <%= link_to 'View all posts', posts_path, class: "p-2 bg-red-400 rounded-lg shadow-xl hover:shadow-none hover:bg-red-200 transition-all text-white" %>
+        <%= link_to 'New Post', new_post_path, class: "p-2 bg-red-400 rounded-lg shadow-xl hover:shadow-none hover:bg-red-200 transition-all text-white hover:scale-95" %>
+        <%= link_to 'View all posts', posts_path, class: "p-2 bg-red-400 rounded-lg shadow-xl hover:shadow-none hover:bg-red-200 transition-all text-white hover:scale-95" %>
       </div>
     </div>
     <div class="rounded-xl">
@@ -64,7 +64,7 @@
         <%= form.label :id, "Search Seat by ID:", class: "mr-2" %>
         <div class="w-full flex">
           <%= form.number_field :id, class: "border p-2 rounded mr-2" %>
-          <%= form.submit "Search", class: "p-2 bg-red-400 rounded-lg shadow-xl hover:shadow-none hover:bg-red-200 transition-all text-white" %>
+          <%= form.submit "Search", class: "p-2 bg-red-400 rounded-lg shadow-xl hover:shadow-none hover:bg-red-200 transition-all text-white hover:scale-95" %>
         </div>
       <% end %>
     </div>
