@@ -62,8 +62,8 @@
     <div class="mt-10">
       <%= form_with url: "/find_seat", method: :get, local: true, class: "flex flex-col mb-4" do |form| %>
         <%= form.label :id, "Search Seat by ID:", class: "mr-2" %>
-        <div class="w-full flex">
-          <%= form.number_field :id, class: "border p-2 rounded-lg mr-2" %>
+        <div class="w-full pr-5 flex">
+          <%= form.number_field :id, class: "border grow p-2 rounded-lg mr-2" %>
           <%= form.submit "Search", class: "p-2 bg-red-400 rounded-lg shadow-xl hover:shadow-none hover:bg-red-200 transition-all text-white hover:scale-95" %>
         </div>
       <% end %>
