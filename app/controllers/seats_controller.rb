@@ -1,7 +1,7 @@
 class SeatsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_seat, only: %i[show edit update destroy]
-  before_action :admin_only, only: %i[admin_index destroy]
+  before_action :admin_only, only: %i[admin_index]
 
   # Alle Sitzplätze des aktuellen Benutzers anzeigen
   def index
@@ -60,8 +60,6 @@ class SeatsController < ApplicationController
   # Sitzplatz löschen
   def destroy
     @seat.destroy
-
-    Rails.logger.debug("Params: #{params.inspect}") # Füge dies hinzu
 
     if params[:from] == "admin"
       redirect_to admin_seats_url, notice: "Sitzplatz wurde erfolgreich gelöscht."

@@ -23,7 +23,7 @@
             <td class="py-3 px-2">
               <%= link_to 'Show', seat, class: "bg-blue-400 text-white rounded-lg p-2 transition-all shadow-lg hover:shadow-none" %>
               <%= link_to 'Edit', edit_seat_path(seat), class: "bg-green-400 text-white rounded-lg p-2 mx-2 transition-all shadow-lg hover:shadow-none" %>
-              <%= link_to 'Delete', seat, data: {"turbo-method": :delete}, class: "bg-red-400 text-white rounded-lg p-2 transition-all shadow-lg hover:shadow-none", params: { from: 'user' } %>
+              <%= link_to 'Delete', seat, data: {"turbo-method": :delete}, class: "bg-red-400 text-white rounded-lg p-2 transition-all shadow-lg hover:shadow-none"%>
             </td>
             <td class="py-3 px-2 flex gap-2">
               <p id="spotMySeatId_<%= seat.id %>"><%= seat.id%></p>
