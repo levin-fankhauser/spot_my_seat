@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get "posts/index"
+  get "posts/new"
+  get "posts/create"
+  get "posts/show"
+  get "posts/edit"
+  get "posts/update"
+  get "posts/destroy"
   get "seats/index"
   get "seats/show"
   get "seats/new"
@@ -10,6 +17,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, except: [ :new, :create ]
   resources :seats
+  resources :posts
   root to: "home#index"
 
   get "admin/seats", to: "seats#admin_index", as: "admin_seats"
