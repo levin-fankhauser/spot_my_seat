@@ -1,13 +1,39 @@
-<h1 class="text-4xl font-bold mb-4">Blog Posts</h1>
-<% if user_signed_in? %>
-  <%= link_to 'New Post', new_post_path, class: "bg-blue-500 text-white p-2 rounded" %>
-<% end %>
-<div class="mt-6">
-  <% @posts.each do |post| %>
-    <div class="border-b py-4">
-      <h2 class="text-2xl font-bold"><%= link_to post.title, post_path(post) %></h2>
-      <p class="text-gray-600">by <%= post.user.username %> on <%= post.created_at.strftime("%B %d, %Y") %></p>
-      <p><%= truncate(post.content, length: 200) %></p>
+<div class="flex flex-col pt-32 items-center">
+  <div class="p-14 shadow-2xl rounded-3xl w-full max-w-6xl flex flex-col">
+    <h1 class="text-xl font-bold mb-4 text-center">Blog Posts</h1>
+    <% if user_signed_in? %>
+      <%= link_to 'New Post', new_post_path, class: "bg-green-500 self-center mb-4 text-white p-2 rounded-lg" %>
+    <% end %>
+    <table class="table-auto w-full mt-4">
+      <thead>
+        <tr>
+          <th class="py-3 px-2 text-left">Title</th>
+          <th class="py-3 px-2 text-left">Author</th>
+          <th class="py-3 px-2 text-left">Date</th>
+          <th class="py-3 px-2 text-left">Content</th>
+          <th class="py-3 px-2 text-left">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @posts.each do |post| %>
+          <tr class="border-b border-gray-200 hover:bg-gray-100">
+            <td class="py-3 px-2"><%= post.title%></td>
+            <td class="py-3 px-2"><%= post.user.username %></td>
+            <td class="py-3 px-2"><%= post.created_at.strftime("%B %d, %Y") %></td>
+            <td class="py-3 px-2"><%= truncate(post.content, length: 100) %></td>
+            <td class="py-3 px-2">
+              <%= link_to 'Show', post_path(post), class: "bg-blue-400 text-white rounded-lg p-2 transition-all shadow-lg hover:shadow-none" %>
+              <% if current_user == post.user || current_user.admin? %>
+                <%= link_to 'Edit', edit_post_path(post), class: "bg-green-400 text-white rounded-lg p-2 mx-2 transition-all shadow-lg hover:shadow-none" %>
+                <%= link_to 'Delete', post, data: { "turbo-method": :delete, confirm: 'Are you sure?' }, class: "bg-red-400 text-white rounded-lg p-2 transition-all shadow-lg hover:shadow-none" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="underline hover:no-underline transition-all mt-4 pl-2">
+      <%= link_to "Back", root_path %>
     </div>
-  <% end %>
+  </div>
 </div>

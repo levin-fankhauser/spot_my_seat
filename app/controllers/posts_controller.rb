@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [ :index, :show ]
   before_action :set_post, only: [ :show, :edit, :update, :destroy ]
-  before_action :correct_user, only: [ :edit, :update, :destroy ]
+  before_action :correct_user_or_admin, only: [ :edit, :update, :destroy ]
 
   def index
     @posts = Post.all.order(created_at: :desc)
@@ -49,7 +49,9 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :content)
   end
 
-  def correct_user
-    redirect_to posts_path, notice: "Not authorized to edit this post" unless @post.user == current_user
+  def correct_user_or_admin
+    unless current_user.admin? || @post.user == current_user
+      redirect_to posts_path, alert: "You are not authorized to perform this action."
+    end
   end
 end

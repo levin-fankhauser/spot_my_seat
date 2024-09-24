@@ -1,13 +1,6 @@
-<h1 class="text-4xl font-bold mb-4"><%= action_name.capitalize %> Post</h1>
-<%= form_with(model: @post, local: true) do |form| %>
-  <div class="mb-4">
-    <%= form.label :title, class: "block mb-2" %>
-    <%= form.text_field :title, class: "p-2 border rounded w-full" %>
+<div class="flex flex-col pt-32 items-center">
+  <div class="p-14 shadow-2xl rounded-3xl">
+    <h1 class="text-xl font-bold mb-4">New Post</h1>
+    <%= render 'form' %>
   </div>
-  <div class="mb-4">
-    <%= form.label :content, class: "block mb-2" %>
-    <%= form.text_area :content, rows: 10, class: "p-2 border rounded w-full" %>
-  </div>
-  <%= form.submit class: "bg-blue-500 text-white p-2 rounded" %>
-<% end %>
-<%= link_to 'Back', posts_path, class: "mt-4 inline-block" %>
+</div>

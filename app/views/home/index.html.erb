@@ -3,21 +3,21 @@
     <div class="flex justify-between">
       <h2 class="text-4xl font-bold">Welcome back, <%= current_user.username %>!</h2>
       <div class="flex rounded-lg gap-1">
-        <%= link_to 'My Profile', user_path(current_user), class: "p-2 rounded-l-lg rounded-r-sm bg-white transition-all hover:bg-red-200 shadow-xl hover:shadow-none" %>
+        <%= link_to 'My Profile', user_path(current_user), class: "p-2 rounded-l-lg rounded-r-sm transition-all shadow-xl hover:shadow-none border-2 border-red-400 hover:border-red-200" %>
         <% if current_user.admin? %>
-          <%= link_to 'Manage Users', users_path, class: "p-2 hover:bg-red-200 rounded-sm bg-white transition-all shadow-xl hover:shadow-none" %>
+          <%= link_to 'Manage Users', users_path, class: "p-2 rounded-sm transition-all shadow-xl hover:shadow-none border-2 border-red-400 hover:border-red-200" %>
         <% end %>
-        <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "p-2 rounded-l-sm rounded-r-lg hover:bg-red-200 bg-white transition-all shadow-xl hover:shadow-none" %>
+        <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "p-2 rounded-l-sm rounded-r-lg transition-all shadow-xl hover:shadow-none border-2 border-red-400 hover:border-red-200" %>
       </div>
     </div>
   <% else %>
     <div class="flex justify-between">
       <h2 class="text-4xl font-bold">Welcome to the site!</h2>
       <div class="flex rounded-lg gap-1">
-        <div class="p-2 rounded-l-lg transition-all bg-white hover:bg-red-200 shadow-xl hover:shadow-none">
+        <div class="p-2 rounded-l-lg rounded-r-sm transition-all shadow-xl hover:shadow-none border-2 border-red-400 hover:border-red-200">
           <%= link_to 'Sign up', new_user_registration_path %>
         </div>
-        <div class="p-2 rounded-r-lg hover:bg-red-200 bg-white transition-all shadow-xl hover:shadow-none">
+        <div class="p-2 rounded-l-sm rounded-r-lg transition-all shadow-xl hover:shadow-none border-2 border-red-400 hover:border-red-200">
           <%= link_to 'Login', new_user_session_path %>
         </div>
       </div>
@@ -28,27 +28,42 @@
   <div class="flex flex-col gap-2 w-full">
     <h2 class="text-3xl font-bold">Dashboard</h2>
     <div class="flex h-96 mr-10 gap-5">
-      <%= link_to 'Pick new Seat', new_seat_path, class: "flex-1 p-5 bg-red-400 rounded-xl text-center" %>
-      <%= link_to 'My Seat History', seats_path, class: "flex-1 p-5 bg-red-400 rounded-xl text-center" %>
+      <%= link_to new_seat_path, class: "flex-1 bg-[#dfeed9] rounded-xl text-center flex flex-col items-center justify-evenly gap-2" do %>
+        <h2 class="font-bold text-lg">Pick a Seat</h2>
+        <%= image_tag "pick_a_seat.jpg", class: "w-full" %>
+      <% end %>
+      <%= link_to seats_path, class: "flex-1 bg-red-400 rounded-xl text-center flex items-center justify-center gap-2" do %>
+        <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+        </svg>
+        My Seat History
+      <% end %>
       <% if user_signed_in? %>
         <% if current_user.admin? %>
-          <%= link_to 'Global Seat History', admin_seats_path, class: "flex-1 p-5 bg-red-400 rounded-xl" %>
-        <% end %>
+          <%= link_to admin_seats_path, class: "flex-1 bg-red-400 rounded-xl text-center flex items-center justify-center gap-2" do %>
+            <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
+            Global Seat History
+          <% end %>        <% end %>
       <% end %>
     </div>
   </div>
-  <div class="w-1/3">
+  <div class="w-1/3 px-5">
     <h2 class="text-3xl mb-4 font-bold">Blog</h2>
     <div class="rounded-xl">
       <% @posts = Post.order(created_at: :desc).limit(3) %>
-      <% @posts.each do |post| %>
+      <% @posts.take(4).each do |post| %>
         <div class="border-b border-gray-300 py-2">
           <p class="text-xs"><%= post.user.username %> at <%= post.created_at.strftime("%d. %B, %Y") %></p>
           <h3 class="text-lg font-bold"><%= link_to post.title, post_path(post), class: "hover:underline" %></h3>
           <p><%= truncate(post.content, length: 100) %></p>
         </div>
       <% end %>
-      <%= link_to 'View all posts', posts_path, class: "mt-4 text-white underline" %>
+      <div class="mt-4 flex justify-evenly">
+        <%= link_to 'New Post', new_post_path, class: "p-2 border-2 border-red-400 rounded-lg shadow-xl hover:shadow-none hover:border-red-200 transition-all" %>
+        <%= link_to 'View all posts', posts_path, class: "p-2 border-2 border-red-400 rounded-lg shadow-xl hover:shadow-none hover:border-red-200 transition-all" %>
+      </div>
     </div>
   </div>
 </main>
