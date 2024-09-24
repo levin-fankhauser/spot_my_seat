@@ -3,17 +3,17 @@
     <div class="flex justify-between">
       <h2 class="text-4xl font-bold">Welcome back, <%= current_user.username %>!</h2>
       <div class="flex rounded-lg gap-1">
-        <%= link_to 'My Profile', user_path(current_user), class: "p-2 rounded-l-lg bg-white transition-all hover:bg-red-100 shadow-xl hover:shadow-none" %>
+        <%= link_to 'My Profile', user_path(current_user), class: "p-2 rounded-l-lg rounded-r-sm bg-white transition-all hover:bg-red-200 shadow-xl hover:shadow-none" %>
         <% if current_user.admin? %>
-          <%= link_to 'Manage Users', users_path, class: "p-2 hover:bg-red-200 bg-white transition-all shadow-xl hover:shadow-none" %>
+          <%= link_to 'Manage Users', users_path, class: "p-2 hover:bg-red-200 rounded-sm bg-white transition-all shadow-xl hover:shadow-none" %>
         <% end %>
-        <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "p-2 rounded-r-lg hover:bg-red-200 bg-white transition-all shadow-xl hover:shadow-none" %>
+        <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "p-2 rounded-l-sm rounded-r-lg hover:bg-red-200 bg-white transition-all shadow-xl hover:shadow-none" %>
       </div>
     </div>
   <% else %>
     <div class="flex justify-between">
-      <h2 class="text-xl font-bold">Welcome to the site!</h2>
-      <div class="flex rounded-lg border gap-1">
+      <h2 class="text-4xl font-bold">Welcome to the site!</h2>
+      <div class="flex rounded-lg gap-1">
         <div class="p-2 rounded-l-lg transition-all bg-white hover:bg-red-200 shadow-xl hover:shadow-none">
           <%= link_to 'Sign up', new_user_registration_path %>
         </div>
