@@ -24,17 +24,17 @@
   <div class="flex flex-col gap-2 w-full">
     <h2 class="text-3xl mb-6 font-bold">Dashboard</h2>
     <div class="flex h-[450px] min-[1900px]:h-[800px] mr-10 gap-5">
-      <%= link_to new_seat_path, class: "flex-1 bg-[#dfeed9] rounded-xl text-center flex flex-col items-center justify-evenly gap-2 hover:scale-[102%] transition-all shadow-xl" do %>
+      <%= link_to new_seat_path, class: "flex-1 bg-[#dfeed9] rounded-xl text-center flex flex-col items-center justify-evenly gap-2 hover:scale-[102%] hover:shadow-2xl transition-all shadow-lg" do %>
         <h2 class="font-bold text-lg">Pick a Seat</h2>
         <%= image_tag "pick_a_seat.jpg", class: "w-full rounded-xl" %>
       <% end %>
-      <%= link_to seats_path, class: "flex-1 bg-blue-200 rounded-xl text-center flex flex-col items-center justify-evenly gap-2 hover:scale-[102%] transition-all shadow-xl" do %>
+      <%= link_to seats_path, class: "flex-1 bg-blue-200 rounded-xl text-center flex flex-col items-center justify-evenly gap-2 hover:scale-[102%] transition-all shadow-lg hover:shadow-2xl" do %>
         <h2 class="font-bold text-lg">My Seat History</h2>
         <%= image_tag "history.png", class: "w-2/3 rounded-xl" %>
       <% end %>
       <% if user_signed_in? %>
         <% if current_user.admin? %>
-          <%= link_to admin_seats_path, class: "flex-1 bg-red-200 rounded-xl text-center flex items-center justify-evenly flex-col gap-2 hover:scale-[102%] transition-all shadow-xl" do %>
+          <%= link_to admin_seats_path, class: "flex-1 bg-red-200 rounded-xl text-center flex items-center justify-evenly flex-col gap-2 hover:scale-[102%] transition-all shadow-lg hover:shadow-2xl" do %>
             <h2 class="font-bold text-lg">Global Seat History</h2>
             <%= image_tag "admin_history.png", class: "w-2/3 rounded-xl" %>
           <% end %>        <% end %>
@@ -63,7 +63,7 @@
       <%= form_with url: "/find_seat", method: :get, local: true, class: "flex flex-col mb-4" do |form| %>
         <%= form.label :id, "Search Seat by ID:", class: "mr-2" %>
         <div class="w-full flex">
-          <%= form.number_field :id, class: "border p-2 rounded mr-2" %>
+          <%= form.number_field :id, class: "border p-2 rounded-lg mr-2" %>
           <%= form.submit "Search", class: "p-2 bg-red-400 rounded-lg shadow-xl hover:shadow-none hover:bg-red-200 transition-all text-white hover:scale-95" %>
         </div>
       <% end %>
