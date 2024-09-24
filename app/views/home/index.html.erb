@@ -1,56 +1,54 @@
-<header class="p-10 rounded-xl">
+<header class="p-10 pb-7 ">
   <% if user_signed_in? %>
     <div class="flex justify-between">
       <h2 class="text-4xl font-bold">Welcome back, <%= current_user.username %>!</h2>
       <div class="flex rounded-lg gap-1">
-        <%= link_to 'My Profile', user_path(current_user), class: "p-2 rounded-l-lg rounded-r-sm transition-all shadow-xl hover:shadow-none border-2 border-red-400 hover:border-red-200" %>
+        <%= link_to 'My Profile', user_path(current_user), class: "p-2 bg-white rounded-l-lg rounded-r-sm transition-all shadow-xl hover:shadow-none border-2 border-red-400 hover:border-red-200" %>
         <% if current_user.admin? %>
-          <%= link_to 'Manage Users', users_path, class: "p-2 rounded-sm transition-all shadow-xl hover:shadow-none border-2 border-red-400 hover:border-red-200" %>
+          <%= link_to 'Manage Users', users_path, class: "p-2 rounded-sm transition-all shadow-xl bg-white hover:shadow-none border-2 border-red-400 hover:border-red-200" %>
         <% end %>
-        <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "p-2 rounded-l-sm rounded-r-lg transition-all shadow-xl hover:shadow-none border-2 border-red-400 hover:border-red-200" %>
+        <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "p-2 bg-white rounded-l-sm rounded-r-lg transition-all shadow-xl hover:shadow-none border-2 border-red-400 hover:border-red-200" %>
       </div>
     </div>
   <% else %>
     <div class="flex justify-between">
       <h2 class="text-4xl font-bold">Welcome to the site!</h2>
       <div class="flex rounded-lg gap-1">
-        <div class="p-2 rounded-l-lg rounded-r-sm transition-all shadow-xl hover:shadow-none border-2 border-red-400 hover:border-red-200">
-          <%= link_to 'Sign up', new_user_registration_path %>
-        </div>
-        <div class="p-2 rounded-l-sm rounded-r-lg transition-all shadow-xl hover:shadow-none border-2 border-red-400 hover:border-red-200">
-          <%= link_to 'Login', new_user_session_path %>
-        </div>
+        <%= link_to 'Sign up', new_user_registration_path, class: "p-2 rounded-l-lg rounded-r-sm transition-all bg-white shadow-xl hover:shadow-none border-2 border-red-400 hover:border-red-200" %>
+        <%= link_to 'Login', new_user_session_path, class: "p-2 rounded-l-sm rounded-r-lg transition-all bg-white shadow-xl hover:shadow-none border-2 border-red-400 hover:border-red-200" %>
       </div>
     </div>
   <% end %>
 </header>
 <main class="ml-10 mt-10 flex">
   <div class="flex flex-col gap-2 w-full">
-    <h2 class="text-3xl font-bold">Dashboard</h2>
-    <div class="flex h-96 mr-10 gap-5">
-      <%= link_to new_seat_path, class: "flex-1 bg-[#dfeed9] rounded-xl text-center flex flex-col items-center justify-evenly gap-2" do %>
+    <h2 class="text-3xl mb-6 font-bold">Dashboard</h2>
+    <div class="flex h-[450px] min-[1900px]:h-[800px] mr-10 gap-5">
+      <%= link_to new_seat_path, class: "flex-1 bg-[#dfeed9] rounded-xl text-center flex flex-col items-center justify-evenly gap-2 hover:scale-[102%] transition-all shadow-xl" do %>
         <h2 class="font-bold text-lg">Pick a Seat</h2>
-        <%= image_tag "pick_a_seat.jpg", class: "w-full" %>
+        <%= image_tag "pick_a_seat.jpg", class: "w-full rounded-xl" %>
       <% end %>
-      <%= link_to seats_path, class: "flex-1 bg-red-400 rounded-xl text-center flex items-center justify-center gap-2" do %>
-        <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-        </svg>
-        My Seat History
+      <%= link_to seats_path, class: "flex-1 bg-blue-200 rounded-xl text-center flex flex-col items-center justify-evenly gap-2 hover:scale-[102%] transition-all shadow-xl" do %>
+        <h2 class="font-bold text-lg">My Seat History</h2>
+        <%= image_tag "history.png", class: "w-2/3 rounded-xl" %>
       <% end %>
       <% if user_signed_in? %>
         <% if current_user.admin? %>
-          <%= link_to admin_seats_path, class: "flex-1 bg-red-400 rounded-xl text-center flex items-center justify-center gap-2" do %>
-            <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-            </svg>
-            Global Seat History
+          <%= link_to admin_seats_path, class: "flex-1 bg-red-200 rounded-xl text-center flex items-center justify-evenly flex-col gap-2 hover:scale-[102%] transition-all shadow-xl" do %>
+            <h2 class="font-bold text-lg">Global Seat History</h2>
+            <%= image_tag "admin_history.png", class: "w-2/3 rounded-xl" %>
           <% end %>        <% end %>
       <% end %>
     </div>
   </div>
   <div class="w-1/3 px-5">
-    <h2 class="text-3xl mb-4 font-bold">Blog</h2>
+    <div class="flex mb-4 justify-between pr-5">
+      <h2 class="text-3xl font-bold">Blog</h2>
+      <div class="flex gap-2">
+        <%= link_to 'New Post', new_post_path, class: "p-2 bg-red-400 rounded-lg shadow-xl hover:shadow-none hover:bg-red-200 transition-all text-white" %>
+        <%= link_to 'View all posts', posts_path, class: "p-2 bg-red-400 rounded-lg shadow-xl hover:shadow-none hover:bg-red-200 transition-all text-white" %>
+      </div>
+    </div>
     <div class="rounded-xl">
       <% @posts = Post.order(created_at: :desc).limit(3) %>
       <% @posts.take(4).each do |post| %>
@@ -60,10 +58,15 @@
           <p><%= truncate(post.content, length: 100) %></p>
         </div>
       <% end %>
-      <div class="mt-4 flex justify-evenly">
-        <%= link_to 'New Post', new_post_path, class: "p-2 border-2 border-red-400 rounded-lg shadow-xl hover:shadow-none hover:border-red-200 transition-all" %>
-        <%= link_to 'View all posts', posts_path, class: "p-2 border-2 border-red-400 rounded-lg shadow-xl hover:shadow-none hover:border-red-200 transition-all" %>
-      </div>
+    </div>
+    <div class="mt-10">
+      <%= form_with url: "/find_seat", method: :get, local: true, class: "flex flex-col mb-4" do |form| %>
+        <%= form.label :id, "Search Seat by ID:", class: "mr-2" %>
+        <div class="w-full flex">
+          <%= form.number_field :id, class: "border p-2 rounded mr-2" %>
+          <%= form.submit "Search", class: "p-2 bg-red-400 rounded-lg shadow-xl hover:shadow-none hover:bg-red-200 transition-all text-white" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </main>

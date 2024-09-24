@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   get "admin/seats", to: "seats#admin_index", as: "admin_seats"
+  get "find_seat", to: "seats#find_seat"
 
   get "up" => "rails/health#show", as: :rails_health_check
 

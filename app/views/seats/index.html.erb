@@ -10,6 +10,7 @@
           <th class="py-3 px-2 text-left">Seat</th>
           <th class="py-3 px-2 text-left">Floor</th>
           <th class="py-3 px-2 text-left">Actions</th>
+          <th class="py-3 px-2 text-left">SpotMySeat ID</th>
         </tr>
       </thead>
       <tbody>
@@ -24,6 +25,10 @@
               <%= link_to 'Edit', edit_seat_path(seat), class: "bg-green-400 text-white rounded-lg p-2 mx-2 transition-all shadow-lg hover:shadow-none" %>
               <%= link_to 'Delete', seat, data: {"turbo-method": :delete}, class: "bg-red-400 text-white rounded-lg p-2 transition-all shadow-lg hover:shadow-none", params: { from: 'user' } %>
             </td>
+            <td class="py-3 px-2 flex gap-2">
+              <p id="spotMySeatId_<%= seat.id %>"><%= seat.id%></p>
+              <button id="copyButton_<%= seat.id %>" type="button" onclick="<%= "copyToClipboard(#{seat.id});" %>" class="p-1 rounded-full bg-gray-200"><%= image_tag "copy.png", class: "size-4", id: "copySvg" %></button>
+            </td>
           </tr>
         <% end %>
       </tbody>
@@ -33,3 +38,19 @@
     </div>
   </div>
 </div>
+<script>
+  function copyToClipboard(seatId) {
+    var copyText = document.getElementById("spotMySeatId_" + seatId);
+    navigator.clipboard.writeText(copyText.textContent).then(() => {
+        var button = document.getElementById("copyButton_" + seatId);
+        button.innerHTML = '<%= image_tag "checkmark.png", class: "size-4" %>';
+
+        setTimeout(() => {
+          button.innerHTML = '<%= image_tag "copy.png", class: "size-4" %>';
+        }, 1000);
+      })
+      .catch(err => {
+        console.error('Fehler beim Kopieren: ', err);
+      });
+  }
+</script>

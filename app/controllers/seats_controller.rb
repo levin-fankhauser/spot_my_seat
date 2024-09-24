@@ -17,6 +17,13 @@ class SeatsController < ApplicationController
   def show
   end
 
+  def find_seat
+    seat_id = params[:id].to_i
+    redirect_to seat_path(seat_id)
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_path, alert: "Seat not found."
+  end
+
   # Neues Sitzplatz-Formular
   def new
     @seat = current_user.seats.build
