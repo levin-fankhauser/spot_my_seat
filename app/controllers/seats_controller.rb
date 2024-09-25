@@ -36,6 +36,7 @@ class SeatsController < ApplicationController
 
   # Sitzplatz erstellen
   def create
+    Rails.logger.debug "Params: #{params.inspect}"
     @seat = current_user.seats.build(seat_params)
     if @seat.save
       redirect_to @seat, notice: "Seat was successfully created."
