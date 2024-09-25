@@ -1,7 +1,7 @@
 <div class="flex flex-col pt-14 items-center">
   <div class="p-14 shadow-2xl rounded-3xl">
     <h1 class="text-xl font-bold mb-4">Edit User</h1>
-    <%= form_with(model: @user, local: true) do |form| %>
+    <%= form_with(model: @user, local: true) do |form|%>
       <% if @user.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -29,7 +29,7 @@
         <%= form.password_field :password_confirmation, autocomplete: "off", required: true, class: "rounded" %>
       </div>
       <div class="actions">
-        <%= form.submit "Update User", class: "bg-red-400 py-2 px-4 rounded-lg transition-all shadow-md hover:shadow-none flex justify-center mb-4 w-full" %>
+        <%= form.submit "Update User", class: "bg-red-400 py-2 px-4 rounded-lg transition-all shadow-md hover:shadow-none flex justify-center mb-4 w-[95%]" %>
       </div>
     <% end %>
     <div class="underline hover:no-underline transition-all mb-4">
