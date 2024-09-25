@@ -9,23 +9,25 @@
       </ul>
     </div>
   <% end %>
-  <div class="field" id="train_select">
-    <%= form.label :train %>
-    <%= form.select :train, [['IR27', 'IR27'], ['S3', 'S3']], {}, { onChange: "wagonTypeValid()" } %>
+  <div class="flex justify-center gap-5 px-5 mb-10">
+    <div class="field" id="train_select">
+      <%= form.label :train %>
+      <%= form.select :train, [['IR27', 'IR27'], ['S3', 'S3']], {}, { onChange: "wagonTypeValid()" } %>
+    </div>
+    <div class="field">
+      <%= form.label :wagons %>
+      <%= form.number_field :wagons, class: "p-2 border rounded" %>
+    </div>
+    <div class="field">
+      <%= form.label :current_wagon %>
+      <%= form.number_field :current_wagon, class: "p-2 border rounded" %>
+    </div>
+    <div class="field" id="floor_select">
+      <%= form.label :floor %>
+      <%= form.select :floor, [[0, 'Ground floor'], [1, 'First floor']], {}, { onChange: "wagonTypeValid()" } %>
+    </div>
   </div>
-  <div class="field">
-    <%= form.label :wagons %>
-    <%= form.number_field :wagons, class: "p-2 border rounded" %>
-  </div>
-  <div class="field">
-    <%= form.label :current_wagon %>
-    <%= form.number_field :current_wagon, class: "p-2 border rounded" %>
-  </div>
-  <div class="field" id="floor_select">
-    <%= form.label :floor %>
-    <%= form.select :floor, [[0, 'Ground floor'], [1, 'First floor']], {}, { onChange: "wagonTypeValid()" } %>
-  </div>
-  <div class="field">
+  <div class="field flex flex-col items-center">
     <%= form.label :seat_number, "Seat Number", class: "block text-lg font-medium text-gray-700" %>
     <%# von hier %>
     <div id="IR27firstFloor" class="border-4 border-gray-400 shadow-lg p-10 pl-32 rounded-r-3xl rounded-l-[130px] m-5 flex flex-col">
@@ -128,11 +130,13 @@
     </div>
     <%# bis hier %>
   </div>
-  <div class="actions">
-    <%= form.submit class: "bg-green-500 text-white p-2 rounded" %>
+  <div class="actions flex justify-center">
+    <%= form.submit class: "bg-red-400 py-2 px-4 rounded-lg transition-all shadow-md hover:shadow-none flex justify-center mb-4 w-1/2" %>
   </div>
 <% end %>
-<%= link_to 'Zurück', seats_path, class: "bg-gray-500 text-white p-2 rounded mt-4 inline-block" %>
+<div class="underline hover:no-underline transition-all ml-10">
+  <%= link_to "Home", root_path%>
+</div>
 <script>
   function wagonTypeValid() {
   var trainSelect = document.querySelector("select[name='seat[train]']");
