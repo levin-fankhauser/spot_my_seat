@@ -14,7 +14,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @seats.each do |seat| %>
+        <% @seats.reverse.each do |seat| %>
           <tr class="border-b border-gray-200 hover:bg-gray-100">
             <td class="py-3 px-2"><%= seat.train %></td>
             <td class="py-3 px-2"><%= seat.current_wagon %> of <%= seat.wagons %></td>
