@@ -138,6 +138,8 @@
   <%= link_to "Home", root_path%>
 </div>
 <script>
+  wagonTypeValid();
+
   function wagonTypeValid() {
   var trainSelect = document.querySelector("select[name='seat[train]']");
   var floorSelect = document.querySelector("select[name='seat[floor]']");
@@ -149,9 +151,4 @@
     config.style.display = "none";
   }
   }
-
-  // Initialer Aufruf, um die Sichtbarkeit zu setzen
-  document.addEventListener('DOMContentLoaded', function() {
-  wagonTypeValid();
-  });
 </script>
