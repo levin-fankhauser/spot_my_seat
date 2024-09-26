@@ -1,4 +1,4 @@
-<header class="p-10 pb-7 ">
+<header class="p-10 pb-7">
   <% if user_signed_in? %>
     <div class="flex justify-between">
       <h2 class="text-4xl font-bold">Welcome back, <%= current_user.username %>!</h2>
@@ -37,7 +37,8 @@
           <%= link_to admin_seats_path, class: "flex-1 bg-red-200 rounded-xl text-center flex items-center justify-evenly flex-col gap-2 hover:scale-[102%] transition-all shadow-lg hover:shadow-2xl" do %>
             <h2 class="font-bold text-lg">Global Seat History</h2>
             <%= image_tag "admin_history.png", class: "w-2/3 rounded-xl" %>
-          <% end %>        <% end %>
+          <% end %>
+        <% end %>
       <% end %>
     </div>
   </div>

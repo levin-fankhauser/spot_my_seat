@@ -252,7 +252,7 @@
   </div>
 <% end %>
 <div class="underline hover:no-underline transition-all ml-10">
-  <%= link_to "Home", root_path%>
+  <%= link_to "Back", '#', onclick: 'window.history.back(); return false;'%>
 </div>
 <script>
   function wagonTypeValid() {

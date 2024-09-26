@@ -1,28 +1,224 @@
-<h1>Sitzplatz Details</h1>
-<p>
-  <strong>Benutzer:</strong>
-  <%= @seat.user.username %>
-</p>
-<p>
-  <strong>Zug:</strong>
-  <%= @seat.train %>
-</p>
-<p>
-  <strong>Anzahl der Wagen:</strong>
-  <%= @seat.wagons %>
-</p>
-<p>
-  <strong>Aktueller Wagen:</strong>
-  <%= @seat.current_wagon %>
-</p>
-<p>
-  <strong>Sitzplatznummer:</strong>
-  <%= @seat.seat_number %>
-</p>
-<p>
-  <strong>Stockwerk:</strong>
-  <%= @seat.floor == 0 ? 'Untergeschoss' : 'Obergeschoss' %>
-</p>
-<%= link_to 'Bearbeiten', edit_seat_path(@seat), class: "bg-yellow-500 text-white p-2 rounded" %>
-<%= link_to 'Zurück', seats_path, class: "bg-gray-500 text-white p-2 rounded" %>
-<%= link_to 'Löschen', @seat, method: :delete, data: { confirm: 'Bist du sicher?' }, class: "bg-red-500 text-white p-2 rounded" %>
+<div class="flex justify-center m-6">
+  <h1 class="text-2xl font-bold">Seat Details</h1>
+</div>
+<div class="flex justify-center gap-5">
+  <div class="flex flex-col items-center bg-gray-100 p-5 rounded-lg shadow-md">
+    <p class="text-gray-700 font-bold">
+      User: 
+      <span class="font-normal"><%= @seat.user.username %></span>
+    </p>
+  </div>
+  <div class="flex flex-col items-center bg-gray-100 p-5 rounded-lg shadow-md">
+    <p class="text-gray-700 font-bold">
+      Train: 
+      <span class="font-normal"><%= @seat.train %></span>
+    </p>
+  </div>
+  <div class="flex flex-col items-center bg-gray-100 p-5 rounded-lg shadow-md">
+    <p class="text-gray-700 font-bold">
+      Total Wagons: 
+      <span class="font-normal"><%= @seat.wagons %></span>
+    </p>
+  </div>
+  <div class="flex flex-col items-center bg-gray-100 p-5 rounded-lg shadow-md">
+    <p class="text-gray-700 font-bold">
+      Current Wagon: 
+      <span class="font-normal"><%= @seat.current_wagon %></span>
+    </p>
+  </div>
+  <div class="flex flex-col items-center bg-gray-100 p-5 rounded-lg shadow-md">
+    <p class="text-gray-700 font-bold">
+      Floor: 
+      <span class="font-normal"><%= @seat.floor == 0 ? 'Ground floor' : 'First floor' %></span>
+    </p>
+  </div>
+  <div class="flex flex-col items-center bg-gray-100 p-5 rounded-lg shadow-md">
+    <p class="text-gray-700 font-bold">
+      SpotMySeatId: 
+      <span class="font-normal"><%= @seat.id %></span>
+    </p>
+  </div>
+</div>
+<div class="flex flex-col items-center mt-20">
+  <h2 class="text-xl font-bold">Seat</h2>
+  <div class="flex justify-center">
+    <% if (@seat.train == "IR27" && @seat.floor == 0) %>
+      <div id="IR27GroundFloor" class="border-4 border-gray-400 shadow-lg py-10 pl-56 pr-40 rounded-r-3xl rounded-l-[130px] m-5 flex flex-col">
+        <div class="flex gap-6 mb-16">
+          <div class="flex flex-col justify-center items-center p-4 border h-20 w-10 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 1 %>">
+            1
+          </div>
+          <div class="flex flex-col justify-center items-center p-4 border h-20 w-10 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 2 %>">
+            2
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 3 %>">
+            3
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 4 %>">
+            4
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 5 %>">
+            5
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 6 %>">
+            6
+          </div>
+          <div class="flex flex-col justify-center items-center p-4 border h-20 w-10 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 7 %>">
+            7
+          </div>
+        </div>
+        <div class="radio-buttons items-end flex gap-6">
+          <div class="flex flex-col justify-center items-center p-4 border h-20 w-10 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 8 %>">
+            8
+          </div>
+          <div class="flex flex-col justify-center items-center p-4 border h-20 w-10 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 9 %>">
+            9
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 10 %>">
+            10
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 11 %>">
+            11
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 12 %>">
+            12
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 13 %>">
+            13
+          </div>
+          <div class="flex flex-col justify-center items-center p-4 border h-20 w-10 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 14 %>">
+            14
+          </div>
+        </div>
+      </div>
+    <%end%>
+    <% if (@seat.train == "IR27" && @seat.floor == 1) %>
+      <div class="border-4 border-gray-400 shadow-lg p-10 pl-32 rounded-r-3xl rounded-l-[130px] m-5 flex flex-col">
+        <div class="flex gap-6 mb-16">
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 1 %>">
+            1
+          </div>
+          <div class="flex flex-col justify-center items-center p-4 border h-20 w-10 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 2 %>">
+            2
+          </div>
+          <div class="flex items-center justify-center p-4 border h-10 w-28 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 3 %>">
+            3
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 4 %>">
+            4
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 5 %>">
+            5
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 6 %>">
+            6
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 7 %>">
+            7
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 8 %>">
+            8
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 9 %>">
+            9
+          </div>
+          <div class="flex items-center justify-center p-4 border h-10 w-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 10 %>">
+            10
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded ml-40 <%= 'bg-red-400' if @seat.seat_number == 11 %>">
+            11
+          </div>
+        </div>
+        <div class="radio-buttons items-end flex gap-6">
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded mr-24 <%= 'bg-red-400' if @seat.seat_number == 12 %>">
+            12
+          </div>
+          <div class="flex items-center justify-center p-4 border h-10 w-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 13 %>">
+            13
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 14 %>">
+            14
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 15 %>">
+            15
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 16 %>">
+            16
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 17 %>">
+            17
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 18 %>">
+            18
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 19 %>">
+            19
+          </div>
+          <div class="flex items-center justify-center p-4 border h-10 w-28 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 20 %>">
+            20
+          </div>
+          <div class="flex flex-col justify-center items-center p-4 border h-20 w-10 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 21 %>">
+            21
+          </div>
+          <div class="flex flex-col justify-center items-center p-4 border h-20 w-10 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 22 %>">
+            22
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 23 %>">
+            23
+          </div>
+        </div>
+      </div>
+    <%end%>
+    <% if (@seat.train == "S3") %>
+      <div id="S3" class="border-4 border-gray-400 shadow-lg p-10 pl-32 rounded-r-3xl rounded-l-[130px] m-5 flex flex-col">
+        <div class="radio-buttons flex gap-6 mb-16">
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 1 %>">
+            1
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded mr-28 <%= 'bg-red-400' if @seat.seat_number == 2 %>">
+            2
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 3 %>">
+            3
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded mr-28 <%= 'bg-red-400' if @seat.seat_number == 4 %>">
+            4
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 5 %>">
+            5
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 6 %>">
+            6
+          </div>
+        </div>
+        <div class="radio-buttons items-end flex gap-6">
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 7 %>">
+            7
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded mr-28 <%= 'bg-red-400' if @seat.seat_number == 8 %>">
+            8
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 9 %>">
+            9
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded mr-28 <%= 'bg-red-400' if @seat.seat_number == 10 %>">
+            10
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 11 %>">
+            11
+          </div>
+          <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded <%= 'bg-red-400' if @seat.seat_number == 12 %>">
+            12
+          </div>
+        </div>
+      </div>
+    </div>
+  <%end%>
+</div>
+</div>
+<% if current_user.admin? || current_user.id == @seat.user.id %>
+  <div class="flex justify-center gap-5 mt-10">
+    <%= link_to 'Bearbeiten', edit_seat_path(@seat), class: "bg-green-400 text-white rounded-lg p-2 mx-2 transition-all shadow-lg hover:shadow-none" %>
+    <%= link_to 'Löschen', @seat, data: {"turbo-method": :delete}, class: "bg-red-400 text-white rounded-lg p-2 transition-all shadow-lg hover:shadow-none" %>
+  </div>
+<%end%>
