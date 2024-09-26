@@ -7,7 +7,6 @@
         <%= f.label :username %><br />
         <%= f.text_field :username, class: "rounded" %>
       </div>
-      <!-- Email field -->
       <div class="field mb-4">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "rounded" %>
@@ -15,7 +14,6 @@
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
-      <!-- Password field -->
       <div class="field mb-4">
         New <%= f.label :password %> (if wanted)<br />
         <%= f.password_field :password, autocomplete: "new-password", class: "rounded" %>
@@ -24,9 +22,8 @@
           <em><%= @minimum_password_length %> characters minimum</em>
         <% end %>
       </div>
-      <!-- Password confirmation field -->
       <div class="field mb-4">
-        <%= f.label :password_confirmation %><br />
+        <%= f.label :password_confirmation %>*<br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "rounded" %>
       </div>
       <div class="field mb-4">
