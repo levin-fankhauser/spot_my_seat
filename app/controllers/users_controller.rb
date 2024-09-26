@@ -1,4 +1,3 @@
-# app/controllers/users_controller.rb
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [ :show, :edit, :update, :destroy ]
@@ -35,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation, :role)
   end
 
   def authorize_admin!

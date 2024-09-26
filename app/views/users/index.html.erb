@@ -6,6 +6,7 @@
         <tr>
           <th class="py-3 px-2 text-left">Username</th>
           <th class="py-3 px-2 text-left">Email</th>
+          <th class="py-3 px-2 text-left">Role</th>
           <th class="py-3 px-2 text-left">Actions</th>
         </tr>
       </thead>
@@ -14,6 +15,7 @@
           <tr class="border-b border-gray-200 hover:bg-gray-100">
             <td class="py-3 px-2"><%= user.username %></td>
             <td class="py-3 px-2"><%= user.email %></td>
+            <td class="py-3 px-2"><%= user.role == "admin" ? "Admin" : "User" %></td>
             <td class="py-3 px-2">
               <%= link_to 'Show', user, class: "bg-blue-400 rounded-lg p-2 transition-all shadow-lg hover:shadow-none" %>
               <%= link_to 'Edit', edit_user_path(user), class: "bg-green-400 rounded-lg p-2 mx-2 transition-all shadow-lg hover:shadow-none" %>

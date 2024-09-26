@@ -21,12 +21,8 @@
         <%= form.email_field :email, required: true, class: "rounded" %>
       </div>
       <div class="field mb-4">
-        <%= form.label :password %>  (12 characters)<br />
-        <%= form.password_field :password, autocomplete: "off", required: true, class: "rounded" %>
-      </div>
-      <div class="field mb-4">
-        <%= form.label :password_confirmation %><br />
-        <%= form.password_field :password_confirmation, autocomplete: "off", required: true, class: "rounded" %>
+        <%= form.label :role %><br />
+        <%= form.select :role, [["Admin", "admin"], ["User", "user"]] %>
       </div>
       <div class="actions">
         <%= form.submit "Update User", class: "bg-red-400 py-2 px-4 rounded-lg transition-all shadow-md hover:shadow-none flex justify-center mb-4 w-[95%]" %>
