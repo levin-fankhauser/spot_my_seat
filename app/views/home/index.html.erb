@@ -7,7 +7,7 @@
         <% if current_user.admin? %>
           <%= link_to 'Manage Users', users_path, class: "p-2 rounded-sm transition-all shadow-xl bg-white hover:shadow-none border-2 border-red-400 hover:border-red-200 hover:scale-95" %>
         <% end %>
-        <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "p-2 bg-white rounded-l-sm rounded-r-lg transition-all shadow-xl hover:shadow-none border-2 border-red-400 hover:border-red-200 hover:scale-95" %>
+        <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "p-2 bg-white rounded-l-sm rounded-r-lg transition-all shadow-xl hover:shadow-none border-2 border-red-400 hover:border-red-200 hover:scale-95" %>
       </div>
     </div>
   <% else %>
