@@ -13,4 +13,6 @@ class User < ApplicationRecord
   def admin?
     role == "admin"
   end
+
+  has_paper_trail
 end

@@ -1,0 +1,72 @@
+<div class="flex flex-col gap-20 items-center mb-20">
+  <h1 class="text-2xl font-bold">Activity Logs</h1>
+  <div class="p-14 shadow-2xl rounded-3xl w-full max-w-6xl flex flex-col">
+    <h2 class="text-xl font-bold">Seats</h2>
+    <table class="table-auto w-full mt-4">
+      <thead>
+        <tr>
+          <th class="py-3 px-2 text-left">Change Date</th>
+          <th class="py-3 px-2 text-left">User</th>
+          <th class="py-3 px-2 text-left">Action</th>
+          <th class="py-3 px-2 text-left">Seat ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @seat_versions.each do |version| %>
+          <tr class="border-b border-gray-200 hover:bg-gray-100">
+            <td class="py-3 px-2"><%= version.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+            <td class="py-3 px-2"><%= version.whodunnit || "System" %></td>
+            <td class="py-3 px-2"><%= version.event %></td>
+            <td class="py-3 px-2"><%= version.item_id %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="p-14 shadow-2xl rounded-3xl w-full max-w-6xl flex flex-col">
+    <h2 class="text-xl font-bold">Posts</h2>
+    <table  class="table-auto w-full mt-4">
+      <thead>
+        <tr>
+          <th class="py-3 px-2 text-left">Change Date</th>
+          <th class="py-3 px-2 text-left">User</th>
+          <th class="py-3 px-2 text-left">Action</th>
+          <th class="py-3 px-2 text-left">Post ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @post_versions.each do |version| %>
+          <tr class="border-b border-gray-200 hover:bg-gray-100">
+            <td class="py-3 px-2"><%= version.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+            <td class="py-3 px-2"><%= version.whodunnit || "System" %></td>
+            <td class="py-3 px-2"><%= version.event %></td>
+            <td class="py-3 px-2"><%= version.item_id %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="p-14 shadow-2xl rounded-3xl w-full max-w-6xl flex flex-col">
+    <h2 class="text-xl font-bold">Users</h2>
+    <table  class="table-auto w-full mt-4">
+      <thead>
+        <tr>
+          <th class="py-3 px-2 text-left">Change Date</th>
+          <th class="py-3 px-2 text-left">User</th>
+          <th class="py-3 px-2 text-left">Action</th>
+          <th class="py-3 px-2 text-left">User ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user_versions.each do |version| %>
+          <tr class="border-b border-gray-200 hover:bg-gray-100">
+            <td class="py-3 px-2"><%= version.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+            <td class="py-3 px-2"><%= version.whodunnit || "System" %></td>
+            <td class="py-3 px-2"><%= version.event %></td>
+            <td class="py-3 px-2"><%= version.item_id %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

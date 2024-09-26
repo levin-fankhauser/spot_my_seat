@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "activity_logs/index"
   get "posts/index"
   get "posts/new"
   get "posts/create"
@@ -14,10 +15,14 @@ Rails.application.routes.draw do
   get "seats/update"
   get "seats/destroy"
   get "home/index"
+
   devise_for :users
+
   resources :users, except: [ :new, :create ]
   resources :seats
   resources :posts
+  resources :activity_logs, only: [ :index ]
+
   root to: "home#index"
 
   get "admin/seats", to: "seats#admin_index", as: "admin_seats"
