@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: "Benutzer erfolgreich aktualisiert."
+      redirect_to @user, notice: "User was successfully updated."
     else
       render :edit
     end
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to users_path, notice: "Benutzer erfolgreich gelöscht."
+    redirect_to users_path, notice: "User was successfully deleted."
   end
 
   private
@@ -38,10 +38,10 @@ class UsersController < ApplicationController
   end
 
   def authorize_admin!
-    redirect_to root_path, alert: "Zugriff verweigert." unless current_user.admin?
+    redirect_to root_path, alert: "Access denied!" unless current_user.admin?
   end
 
   def authorize_user!
-    redirect_to root_path, alert: "Zugriff verweigert." unless @user == current_user || current_user.admin?
+    redirect_to root_path, alert: "Access denied!" unless @user == current_user || current_user.admin?
   end
 end

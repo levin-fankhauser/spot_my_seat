@@ -63,9 +63,9 @@ class SeatsController < ApplicationController
     @seat.destroy
 
     if params[:from] == "admin"
-      redirect_to admin_seats_url, notice: "Sitzplatz wurde erfolgreich gelöscht."
+      redirect_to admin_seats_url, notice: "Seat was successfully deleted."
     else
-      redirect_to seats_url, notice: "Sitzplatz wurde erfolgreich gelöscht."
+      redirect_to seats_url, notice: "Seat was successfully deleted."
     end
   end
 
