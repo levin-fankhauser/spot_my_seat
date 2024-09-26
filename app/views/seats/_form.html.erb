@@ -31,7 +31,7 @@
     <%= form.label :seat_number, "Seat Number", class: "block text-lg font-medium text-gray-700" %>
     <%# IR27 first floor %>
     <div id="IR27firstFloor" class="border-4 border-gray-400 shadow-lg p-10 pl-32 rounded-r-3xl rounded-l-[130px] m-5 flex flex-col">
-      <div class="radio-buttons flex gap-6 mb-16">
+      <div class="radio-buttons flex gap-6">
         <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded">
           <%= form.radio_button :seat_number, 1 %>
           <%= form.label :seat_number, 1, class: "mt-4" %>
@@ -40,13 +40,13 @@
           <%= form.radio_button :seat_number, 2 %>
           <%= form.label :seat_number, 2, class: "mt-4" %>
         </div>
-        <div class="flex items-center justify-center p-4 border h-10 w-28 border-gray-300 rounded">
+        <div class="flex flex-col justify-center items-center p-4 border h-20 w-10 border-gray-300 rounded">
           <%= form.radio_button :seat_number, 3 %>
-          <%= form.label :seat_number, 3, class: "ml-4" %>
+          <%= form.label :seat_number, 3, class: "mt-4" %>
         </div>
-        <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded">
+        <div class="flex items-center justify-center p-4 border h-10 w-28 border-gray-300 rounded">
           <%= form.radio_button :seat_number, 4 %>
-          <%= form.label :seat_number, 4, class: "mt-4" %>
+          <%= form.label :seat_number, 4, class: "ml-4" %>
         </div>
         <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded">
           <%= form.radio_button :seat_number, 5 %>
@@ -68,27 +68,27 @@
           <%= form.radio_button :seat_number, 9 %>
           <%= form.label :seat_number, 9, class: "mt-4" %>
         </div>
-        <div class="flex items-center justify-center p-4 border h-10 w-20 border-gray-300 rounded">
+        <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded">
           <%= form.radio_button :seat_number, 10 %>
-          <%= form.label :seat_number, 10, class: "ml-4" %>
+          <%= form.label :seat_number, 10, class: "mt-4" %>
         </div>
-        <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded ml-40">
+        <div class="flex items-center justify-center p-4 border h-10 w-20 border-gray-300 rounded">
           <%= form.radio_button :seat_number, 11 %>
-          <%= form.label :seat_number, 11, class: "mt-4" %>
+          <%= form.label :seat_number, 11, class: "ml-4" %>
         </div>
-      </div>
-      <div class="radio-buttons items-end flex gap-6">
-        <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded mr-24">
+        <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded ml-24">
           <%= form.radio_button :seat_number, 12 %>
           <%= form.label :seat_number, 12, class: "mt-4" %>
         </div>
-        <div class="flex items-center justify-center p-4 border h-10 w-20 border-gray-300 rounded">
+      </div>
+      <div class="radio-buttons flex items-end gap-6 mt-16">
+        <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded mr-40">
           <%= form.radio_button :seat_number, 13 %>
-          <%= form.label :seat_number, 13, class: "ml-4" %>
+          <%= form.label :seat_number, 13, class: "mt-4" %>
         </div>
-        <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded">
+        <div class="flex items-center justify-center p-4 border h-10 w-20 border-gray-300 rounded">
           <%= form.radio_button :seat_number, 14 %>
-          <%= form.label :seat_number, 14, class: "mt-4" %>
+          <%= form.label :seat_number, 14, class: "ml-4" %>
         </div>
         <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded">
           <%= form.radio_button :seat_number, 15 %>
@@ -110,13 +110,13 @@
           <%= form.radio_button :seat_number, 19 %>
           <%= form.label :seat_number, 19, class: "mt-4" %>
         </div>
-        <div class="flex items-center justify-center p-4 border h-10 w-28 border-gray-300 rounded">
+        <div class="flex flex-col items-center justify-center p-4 border size-20 border-gray-300 rounded">
           <%= form.radio_button :seat_number, 20 %>
-          <%= form.label :seat_number, 20, class: "ml-4" %>
+          <%= form.label :seat_number, 20, class: "mt-4" %>
         </div>
-        <div class="flex flex-col justify-center items-center p-4 border h-20 w-10 border-gray-300 rounded">
+        <div class="flex items-center justify-center p-4 border h-10 w-28 border-gray-300 rounded">
           <%= form.radio_button :seat_number, 21 %>
-          <%= form.label :seat_number, 21, class: "mt-4" %>
+          <%= form.label :seat_number, 21, class: "ml-4" %>
         </div>
         <div class="flex flex-col justify-center items-center p-4 border h-20 w-10 border-gray-300 rounded">
           <%= form.radio_button :seat_number, 22 %>
