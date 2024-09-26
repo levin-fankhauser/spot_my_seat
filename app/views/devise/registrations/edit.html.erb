@@ -23,11 +23,11 @@
         <% end %>
       </div>
       <div class="field mb-4">
-        <%= f.label :password_confirmation %>*<br />
+        <%= f.label :password_confirmation %><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "rounded" %>
       </div>
       <div class="field mb-4">
-        <%= f.label :current_password %><br />
+        <%= f.label :current_password %>*<br />
         <%= f.password_field :current_password, autocomplete: "current-password", class: "rounded" %>
       </div>
       <div class="actions">
