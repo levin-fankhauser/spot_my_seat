@@ -30,12 +30,12 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "should not save invalid user" do
-    invalid_user = users(:invalid)  # Verwende die ungültige Fixture
+    invalid_user = users(:invalid)
     assert_not invalid_user.save
   end
 
   test "admin? should return true for admin users" do
-    admin_user = users(:two)  # Admin-Benutzer aus den Fixtures
+    admin_user = users(:two)
     assert admin_user.admin?
   end
 

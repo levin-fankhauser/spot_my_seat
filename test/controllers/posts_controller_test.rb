@@ -2,9 +2,9 @@ require "test_helper"
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @post = posts(:one) # assuming you have a fixture for posts
-    @user = users(:one) # assuming you have a fixture for users
-    sign_in @user       # log in the user
+    @post = posts(:one)
+    @user = users(:one)
+    sign_in @user
   end
 
   test "should get index" do

@@ -39,7 +39,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "should deny access for non-admin on index" do
     sign_out @admin_user
-    sign_in @user  # Melde den normalen Benutzer an
+    sign_in @user
     get users_url
     assert_redirected_to root_path
   end
