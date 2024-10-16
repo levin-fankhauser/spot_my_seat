@@ -57,6 +57,6 @@ group :test do
   gem "rails-controller-testing"
 end
 
-gem "tailwindcss-rails", "~> 2.7"
+gem "tailwindcss-rails", "~> 3.0"
 gem "devise"
 gem "paper_trail"
