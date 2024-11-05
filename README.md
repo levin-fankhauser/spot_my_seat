@@ -13,7 +13,7 @@
 1. Clone the Repository:
 
 ```bash
-git [clone https://github.com/deinbenutzername/projektname.git](https://github.com/levin-fankhauser/spot_my_seat.git)
+git clone https://github.com/levin-fankhauser/spot_my_seat.git
 cd spot_my_seat
 ```
 
