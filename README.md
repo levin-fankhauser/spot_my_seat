@@ -21,6 +21,7 @@ cd spot_my_seat
 
 ```bash
 bundle install
+rails tailwindcss:install
 ```
 
 3. Configure database
@@ -34,6 +35,12 @@ rails db:migrate
 
 ```bash
 bin/dev
+```
+
+oder
+
+```bash
+rails s
 ```
 
 5. Open app on [localhost:3000](localhost:3000)
