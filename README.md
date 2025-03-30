@@ -60,6 +60,32 @@ rails console
 User.find_by(email: '<your@mail.com>')&.update(role: 'admin')
 ```
 
+## Connect do PostgreSQL Database
+
+1. Open Postgres CLI
+
+```bash
+sudo -u postgres psql
+```
+
+2. List databases (not neccesarry)
+
+```bash
+\l
+```
+
+3. Connect to your db
+
+```bash
+\c spotmyseat
+```
+
+4. Execute your Query
+
+```bash
+SELECT * FROM seats;
+```
+
 ## Test the application
 
 ```bash
