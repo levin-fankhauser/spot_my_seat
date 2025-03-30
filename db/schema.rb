@@ -11,10 +11,13 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.2].define(version: 2024_09_26_130946) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
@@ -26,7 +29,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_26_130946) do
     t.integer "current_wagon", null: false
     t.integer "seat_number", null: false
     t.integer "floor", null: false
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_seats_on_user_id"
@@ -53,7 +56,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_26_130946) do
     t.bigint "item_id", null: false
     t.string "item_type", null: false
     t.string "event", null: false
-    t.text "object", limit: 1073741823
+    t.text "object"
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
