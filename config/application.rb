@@ -23,5 +23,13 @@ module SpotMySeat
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    #
+    #
+    # Session-Cookies sicher konfigurieren
+    config.session_store :cookie_store,
+                         key: "_spot_my_seat_session",
+                         httponly: true,
+                         secure: true,
+                         same_site: :lax
   end
 end
