@@ -29,7 +29,7 @@ module SpotMySeat
     config.session_store :cookie_store,
                          key: "_spot_my_seat_session",
                          httponly: true,
-                         secure: true,
+                         secure: Rails.env.production?,
                          same_site: :lax
   end
 end
