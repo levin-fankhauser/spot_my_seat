@@ -5,7 +5,7 @@
       <%= render "devise/shared/error_messages", resource: resource %>
       <div class="field mb-4">
         <%= f.label :username %><br />
-        <%= f.text_field :username, class: "rounded" %>
+        <%= f.text_field :username, maxlength: 20, class: "rounded" %>
       </div>
       <div class="field mb-4">
         <%= f.label :email %><br />
