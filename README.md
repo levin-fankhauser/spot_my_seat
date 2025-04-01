@@ -20,8 +20,8 @@ cd spot_my_seat
 2. Install dependencies
 
 ```bash
-bundle install
 rails tailwindcss:install
+bundle install
 ```
 
 3. Configure database
