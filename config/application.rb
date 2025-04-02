@@ -30,6 +30,6 @@ module SpotMySeat
                          key: "_spot_my_seat_session",
                          httponly: true,
                          secure: Rails.env.production?,
-                         same_site: :lax
+                         same_site: :strict
   end
 end
