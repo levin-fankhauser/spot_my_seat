@@ -16,11 +16,11 @@
     </div>
     <div class="field">
       <%= form.label :wagons %>:
-      <%= form.number_field :wagons, class: "p-2 border" %>
+      <%= form.number_field :wagons, class: "p-2 border", min: 1 %>
     </div>
     <div class="field">
       <%= form.label :current_wagon %>:
-      <%= form.number_field :current_wagon, class: "p-2 border" %>
+      <%= form.number_field :current_wagon, class: "p-2 border", min: 1 %>
     </div>
     <div class="field" id="floor_select">
       <%= form.label :floor %>

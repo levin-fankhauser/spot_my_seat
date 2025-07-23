@@ -4,11 +4,11 @@
     <%= form_with(model: @post, local: true) do |form| %>
       <div class="mb-4">
         <%= form.label :title %>
-        <%= form.text_field :title, class: "p-2 border rounded w-full" %>
+        <%= form.text_field :title, maxlength: 30, class: "p-2 border rounded w-full" %>
       </div>
       <div class="mb-4">
         <%= form.label :content %>
-        <%= form.text_area :content, rows: 4, class: "p-2 border rounded w-full" %>
+        <%= form.text_area :content, maxlength: 200, rows: 4, class: "p-2 border rounded w-full" %>
       </div>
       <%= form.submit class: "bg-red-400 py-2 px-4 rounded-lg transition-all shadow-md hover:shadow-none flex justify-center mb-4 w-full" %>
     <% end %>
